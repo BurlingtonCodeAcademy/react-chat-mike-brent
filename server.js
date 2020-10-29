@@ -8,13 +8,14 @@ const staticDir ="./client/build";
 
 app.use(express.static(staticDir));
 
-app.get("/", (req, res) => {
-  console.log("getting here")
-  res.sendFile(__dirname + "/client/build/index.html");
-});
 
-app.get("/api/rooms", (req, res) => {
-  res.send(["room1", "room2", "room3"]);
+a
+
+
+
+app.get("*", (req, res) => {
+    console.log("getting here")
+    res.sendFile(__dirname + "/client/build/index.html");
 });
 
 app.listen(port, () => {

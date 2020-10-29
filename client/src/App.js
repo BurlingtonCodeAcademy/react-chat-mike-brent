@@ -9,10 +9,13 @@ function App() {
   return (
     <div id='main-container'>
 <Room/>
-<h1>REACT!</h1>
+<h1>REACT 2 !</h1>
 
+          {/* page compoonent
+          served by react server */}
 
-     
+     {/* entry box
+     input buttons  */}
     </div>
   );
 }
