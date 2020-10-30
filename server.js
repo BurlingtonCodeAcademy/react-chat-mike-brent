@@ -1,3 +1,4 @@
+const dataStore = require('./dataStore')
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
@@ -8,8 +9,11 @@ const staticDir ="./client/build";
 
 app.use(express.static(staticDir));
 
-
-a
+app.get("/room/:room", async (req, res) => {
+    
+    let postList = await dataStore.showRoomPosts(req.params.room)
+    res.send(postList)
+})
 
 
 
