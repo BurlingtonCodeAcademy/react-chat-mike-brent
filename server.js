@@ -71,14 +71,14 @@ async function addNewPost(roomId, postObj) {
 
 // show all posts for room
 async function showRoomPosts(roomId) {
-  console.log("roomId =", roomId);
+
   {
     roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo);
   }
 
   let roomPosts = await roomVar.find({});
 
-  console.log(`${roomVar} posts are: `, roomPosts);
+  console.log(`posts are: `, roomPosts);
   return roomPosts;
 }
 
