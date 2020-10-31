@@ -19,15 +19,4 @@ export default function Room() {
   return <div id="post-box">{messageDiv}</div>;
 }
 
-// function() {}
-// () => {}
-// (arg) => {}
-// arg => {}
-// arg => { return 1; }
-// arg => 1
-// (arg1, arg2) => {
 
-// }
-
-// const multipliedByTwoArray = [1,2,3].map((item) => item * 2)
-// multipliedByTwoArray looks like [2,4,6]
