@@ -14,8 +14,10 @@ function App() {
         <div id='main-container'>
             <h1>Chat o Rama</h1>
             <div id='top-container'>
-                <div id='post-box'>post container</div>
-                <div id='selector-box'>selector buttons</div>
+                <div id='post-box'>post container
+                </div>
+                <div id='selector-box'>selector buttons
+                </div>
             </div>
             <br />
             <div id='bottom-container' >
