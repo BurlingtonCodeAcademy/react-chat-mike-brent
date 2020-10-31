@@ -6,15 +6,16 @@ const port = process.env.PORT || 8000;
 const staticDir = "./client/build";
 app.use(express.static(staticDir));
 const path = require("path");
-
+const cors = require("cors")
 // middleware
 app.use(express.urlencoded({ extended: true }))
-
+app.use(cors())
 
 // bring in Mongooose *******************************
 const mongoose = require('mongoose')
 //Open connection to database
-mongoose.connect(`mongodb+srv://brent:${process.env.DBPASS}@cluster0.pvmyn.mongodb.net/chat-project?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+console.log(process.env.DBPASS)
+mongoose.connect(`mongodb+srv://brent:mikeandbrent@cluster0.pvmyn.mongodb.net/chat-project?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
 const myDb = mongoose.connection
 // add event listener for connection errors
 myDb.on('error', console.error.bind(console, 'connection error:'))
