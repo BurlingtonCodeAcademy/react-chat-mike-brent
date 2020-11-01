@@ -1,6 +1,7 @@
 // server Setup ********************************
 require("dotenv").config();
 const express = require("express");
+var bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 8000;
 const staticDir = process.env.DEV ? "./client/public" : "./client/build";
@@ -8,11 +9,13 @@ app.use(express.static(staticDir));
 const path = require("path");
 const cors = require("cors");
 // middleware
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(bodyParser.json());
 
 // bring in Mongooose *******************************
 const mongoose = require("mongoose");
+const { doesNotMatch } = require("assert");
 //Open connection to database
 console.log(process.env.DBPASS);
 mongoose.connect(
@@ -42,13 +45,11 @@ app.get("/room/:room", async (req, res) => {
 });
 
 // Post route for new posts
-app.post("/room/:roomId ", async (req, res) => {
-  {
-    roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo);
-  }
-  let postIn = req.body.post;
-
-  await addNewPost(req.params.room, postIn);
+app.post("/room/:roomId", async (req, res) => {
+  console.log(req.params);
+  console.log(req.body);
+  await addNewPost(req.params.roomId, req.body.post);
+  res.send(201);
 });
 
 // CRUD operations *************************************
@@ -59,11 +60,15 @@ async function addNewPost(roomId, postObj) {
     roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo);
   }
 
+  console.log(postObj.content);
+
   let newPostObj = {
-    date: postObj.date,
+    date: Date.now(),
     author: postObj.author,
     content: postObj.content,
   };
+
+  console.log(newPostObj);
 
   let newPost = new roomVar(newPostObj);
   newPost.save();
@@ -71,7 +76,9 @@ async function addNewPost(roomId, postObj) {
 
 // show all posts for room
 async function showRoomPosts(roomId) {
-  {roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo)}
+  {
+    roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo);
+  }
 
   let roomPosts = await roomVar.find({});
 
