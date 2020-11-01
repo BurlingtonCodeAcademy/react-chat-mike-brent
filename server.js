@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
-const staticDir = "./client/build";
+const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 app.use(express.static(staticDir));
 const path = require("path");
 const cors = require("cors");
