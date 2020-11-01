@@ -18,7 +18,6 @@ export default function Room() {
     })
 
     async function refreshHandler(event) {
-        console.log('refreshed')
         await fetch(`/room/${room}`).then((res) => {
             return res.json();
         }).then((res) => {
@@ -29,27 +28,25 @@ export default function Room() {
     }
 
     function roomOneHandler(event) {
+        event.preventDefault()
         if (room !== 'one') {
             setRoom('one')
             refreshHandler()
-            console.log(room)
         }
     }
 
     function roomTwoHandler(event) {
+        event.preventDefault()
         if (room !== 'two') {
             setRoom('two')
             refreshHandler()
-            console.log(room)
         }
     }
 
 
 
     let messageDiv = messages.map((message) => {
-
-        
-        return <div>{message.date} {message.author} {message.body}</div>;
+        return <li key={message._id}>{message.date} {message.author} {message.body}</li>;
     });
 
 
@@ -57,8 +54,8 @@ export default function Room() {
         <div id="top-container">
             <div id="post-box">{messageDiv}</div>
             <div id="selector-box">
-                <button type='radio' onClick={roomOneHandler} >Room One</button>
-                <button type='radio' onClick={roomTwoHandler} >Room Two</button>
+                <button type='submit' onClick={roomOneHandler} >Room One</button>
+                <button type='submit' onClick={roomTwoHandler} >Room Two</button>
                 <button type="submit" onClick={refreshHandler} >Refresh</button>
             </div>
         </div>
