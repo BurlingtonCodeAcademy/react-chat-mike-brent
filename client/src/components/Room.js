@@ -20,7 +20,7 @@ export default function Room({ room }) {
       fetchAndPopulate();
       const interval = window.setInterval(() => {
          fetchAndPopulate();
-      }, 10000);
+      }, 1000);
       return () => {
          window.clearInterval(interval);
       }

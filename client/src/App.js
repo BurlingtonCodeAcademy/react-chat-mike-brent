@@ -52,21 +52,22 @@ function App() {
 
             <div id='formBox'>
                <form onSubmit={onSubmitHandler}>
-                  
-                  <span>Author: </span>
-                  <input ref={authorInputRef} type="text" id="post-author"></input>
-                  <br />
-                  <span>Message: </span>
-                  <input ref={contentInputRef} type="text" id="post-content"></input>
-                  <div id="button-box">
-                     <input type="submit"></input>
+                  <div id='inputBox'>
+                     <span>Author: </span>
+                     <input ref={authorInputRef} type="text" id="post-author"></input>
+
+                     <span>Message: </span>
+                     <textarea ref={contentInputRef} rows="5" cols="33" id="post-content"></textarea>
                   </div>
+
+
+                  <input id='submitButton' type="submit"></input>
+
                </form>
+               {/* <button type="submit" onClick={refreshHandler}>Refresh</button> */}
             </div>
 
-            <button type="submit" onClick={refreshHandler}>
-               Refresh
-        </button>
+           
          </div>
 
       </div>
