@@ -1,54 +1,114 @@
 #container {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
+   margin: 0;
+   padding: 0;
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow: hidden;
 }
 
 #main-container {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-    height: 95%;
-    overflow: hidden;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
 }
 
-#top-container {
-    display: flex;
-    justify-content: center;
-    width: 95%;
-    height: 50vh;
+#headerBox {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
 }
 
-#post-box {
-    border: .1rem solid blue;
-    display: flex;
-    flex-direction: column;
-    width: 65%;
+#dividerLine {
+   width: 80%;
+   height: .2rem;
+   background: #000;
+   margin: .3rem;
 }
 
 #selector-box {
-    border: .1rem solid blue;
-    width: 30%;
+   display: flex;
+   justify-content: center;
+   padding: 1rem;
+   margin-bottom: 1rem;
+   width: 20%;
 }
 
-#form {
-    display: flex;
-    justify-content: center;
-    width: 95%;
+button {
+   font-size: 1rem;
+   margin: 0 .5rem
+}
+
+#chat-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   height: 60vh;
+   overflow-y: scroll;
+}
+
+#post-box {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   width: 65%;
+}
+
+#byLine {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   font-size: 1.5rem;
+   font-weight: 700;
+}
+
+#byTime {
+   font-size: 1rem;
+   font-weight: 400;
+}
+
+#messageText {
+   text-align: left;
+   font-size: 1.5rem;
+   text-indent: 2rem;
+}
+
+#messageContent {
+   width: 80%;
+}
+
+#line {
+   width: 100%;
+   height: .2rem;
+   background: #000;
+}
+
+#bottom-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+}
+
+#formBox {
+   display: flex;
+   justify-content: center;
+   width: 95%;
+   margin-top: 2rem;
 }
 
 #post-content {
-    width: 70%;
+   width: 70%;
 }
 
 #button-box {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
+   display: flex;
+   flex-direction: column;
+   width: 25%;
 }
