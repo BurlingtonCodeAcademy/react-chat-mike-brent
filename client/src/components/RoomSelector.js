@@ -1,8 +1,8 @@
+// use React
 import React from "react";
 
-
-
-export default function RoomSelector({setRoom}) {
+// create RoomSelector component
+export default function RoomSelector({setRoom}) {  
     function roomOneHandler(event) {
         event.preventDefault()
         setRoom('one');

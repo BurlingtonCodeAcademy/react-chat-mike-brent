@@ -1,3 +1,5 @@
+/* main page base styling */
+
 #container {
    margin: 0;
    padding: 0;
@@ -16,18 +18,13 @@
    height: 100%;
 }
 
+/* Header text and button layout */
+
 #headerBox {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
-}
-
-#dividerLine {
-   width: 80%;
-   height: .2rem;
-   background: #000;
-   margin: .3rem;
 }
 
 #selector-box {
@@ -42,6 +39,15 @@ button {
    font-size: 1rem;
    margin: 0 .5rem
 }
+
+#dividerLine {
+   width: 80%;
+   height: .2rem;
+   background: #000;
+   margin: .3rem;
+}
+
+/* chat post viewer layout and styling */
 
 #chat-container {
    display: flex;
@@ -86,46 +92,49 @@ button {
    justify-content: flex-end;
 }
 
+/*  divider line  */
+
 #line {
    width: 100%;
    height: .2rem;
    background: #000;
 }
 
-#bottom-container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
+/*  bottom section form layout and styling */
 
 #formBox {
    display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: flex-start;
+   justify-content: center;
+   align-items: center;
    width: 95%;
    margin-top: .2rem;
    font-size: 1.5rem;
 }
 
-form {
+#formLeftSide {
    display: flex;
    flex-direction: column;
-   justify-content: space-around;
+   justify-content: flex-start;
    align-items: flex-start;
-   width: 100%;
-}
-
-#inputBox {
-   display: flex;
-   justify-content: center;
-   align-items: flex-start;
+   margin-right: 1rem;
 }
 
 #post-author {
    font-size: 1.2rem;
    width: 10rem;
-   margin: 0 1rem;
+   margin: .1rem 1rem;
+}
+
+#submitButton {
+   font-size: 1rem;
+   margin: 1.5rem .5rem
+}
+
+#formRightSide {
+   display: flex;
+   align-items: flex-start;
+   justify-content: flex-start;
+   margin-left: 1rem;
 }
 
 #post-content {
@@ -133,9 +142,4 @@ form {
    font-size: 1.6rem;
    box-sizing: border-box;
    margin: 0 1rem;
-}
-
-#submitButton {
-   font-size: 1rem;
-   margin: 0 .5rem
 }

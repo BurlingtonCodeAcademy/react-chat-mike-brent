@@ -4,15 +4,14 @@ import Room from "./components/Room.js";
 import RoomSelector from "./components/RoomSelector.js";
 
 function App() {
+   // hook for room selected - room 'state'
    const [room, setRoom] = useState("one");
+
    const authorInputRef = useRef(null);
    const contentInputRef = useRef(null);
-   // hook for user name
-   // hook for room selected - room 'state'
+
+   // form submit handler
    const onSubmitHandler = (evt) => {
-      console.log(authorInputRef);
-      console.log(contentInputRef);
-      console.log("submitted");
       evt.preventDefault();
       fetch(`/room/${room}`, {
          method: "POST",
@@ -27,15 +26,16 @@ function App() {
          }),
       });
    };
+
    async function refreshHandler(event) {
-      // await fetch(`/room/${room}`).then((res) => {
-      //     return res.json();
-      // }).then((res) => {
-      //     if (messages !== res) {
-      //         setMessages(res)
-      //     }
-      // })
+      await fetch(`/room/${room}`).then((res) => {
+         return res.json();
+      }).then((res) => {
+         //  if (messages !== res) {
+         //      setMessages(res)
+      })
    }
+
    return (
       <div id="main-container">
          <div id='headerBox'>
@@ -46,30 +46,25 @@ function App() {
          <div id="chat-container">
             <Room room={room} />
          </div>
+         <div id='dividerLine'></div>
 
-         <div id="bottom-container">
-            <div id='dividerLine'></div>
 
+         <form onSubmit={onSubmitHandler}>
             <div id='formBox'>
-               <form onSubmit={onSubmitHandler}>
-                  <div id='inputBox'>
-                     <span>Author: </span>
-                     <input ref={authorInputRef} type="text" id="post-author"></input>
+               <div id='formLeftSide'>
+                  <span>Author:
+                  <input ref={authorInputRef} type="text" id="post-author"></input>
+                  </span>
+                  <input id='submitButton' type="submit" tabindex="-1"></input>
+                  <button type="submit" onClick={refreshHandler} tabindex="-1">Refresh</button>
+               </div>
 
-                     <span>Message: </span>
-                     <textarea ref={contentInputRef} rows="5" cols="33" id="post-content"></textarea>
-                  </div>
-
-
-                  <input id='submitButton' type="submit"></input>
-
-               </form>
-               {/* <button type="submit" onClick={refreshHandler}>Refresh</button> */}
+               <div id='formRightSide'>
+                  <span>Message:</span>
+                  <textarea ref={contentInputRef} rows="5" cols="25" id="post-content"></textarea>
+               </div>
             </div>
-
-           
-         </div>
-
+         </form>
       </div>
    );
 }

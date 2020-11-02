@@ -1,10 +1,13 @@
+//  import components 
 import React, { useEffect, useState } from "react";
-
 import "./rooms.css";
 
+//  create Room component
 export default function Room({ room }) {
+   //  set messages in state
    const [messages, setMessages] = useState([]);
 
+   // when Room changes - reload messages for new room
    useEffect(() => {
       const fetchAndPopulate = () => {
          fetch(`/room/${room}`)
@@ -17,9 +20,11 @@ export default function Room({ room }) {
                }
             });
       }
-      fetchAndPopulate();
+
+      fetchAndPopulate(); // load posts from default room one on page load
+
       const interval = window.setInterval(() => {
-         fetchAndPopulate();
+         fetchAndPopulate(); // reload posts every one second
       }, 1000);
       return () => {
          window.clearInterval(interval);
@@ -33,12 +38,12 @@ export default function Room({ room }) {
                <div id='byAuthor'> {message.author}</div>
                <div id='byTime' >  {new Date(message.date).toLocaleString()}</div>
             </div>
-           
+
             <div id='messageText'>
                {message.content}
             </div>
             <br />
-         <div id='line'></div>
+            <div id='line'></div>
          </p>
       );
    });
