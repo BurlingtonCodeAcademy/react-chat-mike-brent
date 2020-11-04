@@ -27,12 +27,10 @@ function App() {
       });
    };
 
+   // refresh the content of the post div
    async function refreshHandler(event) {
       await fetch(`/room/${room}`).then((res) => {
          return res.json();
-      }).then((res) => {
-         //  if (messages !== res) {
-         //      setMessages(res)
       })
    }
 

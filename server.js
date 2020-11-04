@@ -53,25 +53,26 @@ app.post("/room/:roomId", async (req, res) => {
 
 // add new post to collection
 async function addNewPost(roomId, postObj) {
-   {
+   { // use roomId to set roomvar to correct collection
       roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo);
    }
+   //create post object from data received from form
    let newPostObj = {
       date: Date.now(),
       author: postObj.author,
       content: postObj.content,
    };
    let newPost = new roomVar(newPostObj);
-   newPost.save();
+   newPost.save(); // save post to collection
 }
 
 // show all posts for room
 async function showRoomPosts(roomId) {
-   {
+   { // use roomId to set roomvar to correct collection
       roomId === "one" ? (roomVar = RoomOne) : (roomVar = RoomTwo);
    }
    let roomPosts = await roomVar.find({});
-   return roomPosts;
+   return roomPosts; // get and return all posts from collection
 }
 
 // Home page route *****************************************
